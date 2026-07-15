@@ -1,0 +1,35 @@
+{
+    "name": "student-attendance-system",
+    "description": "Comprehensive student attendance management system with QR code scanning and SMS notifications",
+    "version": "1.0.0",
+    "type": "project",
+    "require": {
+        "php": ">=7.4",
+        "ext-mysqli": "*",
+        "ext-json": "*",
+        "ext-gd": "*",
+        "capcom6/android-sms-gateway": "^2.0",
+        "symfony/http-client": "^5.4",
+        "psr/http-client": "^1.0",
+        "nyholm/psr7": "^1.8"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "AttendanceSystem\\": "src/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "chmod -R 755 scanner/qrcodes/",
+            "mkdir -p logs"
+        ]
+    }
+}
